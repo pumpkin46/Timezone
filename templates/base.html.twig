@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link href="{{ asset('css/blog.css') }}" rel="stylesheet"/>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            {#{{ encore_entry_link_tags('app') }}#}
+        {% endblock %}
+        {% include('main.html.twig') %}
+        {% if result.empty == true %}
+            <div class="result"><h1>There is no sumitted data yet.</h1></div>
+        {% else %}
+            {% include('result.html.twig') with result %}
+        {% endif %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html>
